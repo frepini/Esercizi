@@ -8,8 +8,13 @@ class CanBalanceTest {
 
     @Test
     void canBalance() {
-        assertEquals(true, CanBalance.canBalance(new int[] {1, 1, 1, 2, 1}));
-        assertEquals(false, CanBalance.canBalance(new int[] {2, 1, 1, 2, 1}));
-        assertEquals(true, CanBalance.canBalance(new int[] {10, 10}));
+        assertTrue(CanBalance.canBalance(new int[]{5, 1, 1, 2, 1}));
+        assertTrue(CanBalance.canBalance(new int[]{-5, -1, -1, -2, -1}));
+        assertTrue(CanBalance.canBalance(new int[]{2, 1, 1, 2, 6}));
+        assertTrue(CanBalance.canBalance(new int[]{10, 10}));
+        assertFalse(CanBalance.canBalance(new int[]{11, 1, 1, 2, 1}));
+        assertFalse(CanBalance.canBalance(new int[]{2, 1, 1, 2, 3}));
+        assertFalse(CanBalance.canBalance(new int[]{-2, -1, -1, -2, -3}));
+        assertFalse(CanBalance.canBalance(new int[]{1}));
     }
 }
