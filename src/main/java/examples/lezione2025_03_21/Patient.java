@@ -1,4 +1,4 @@
-package examples;
+package examples.lezione2025_03_21;
 
 import java.util.Objects;
 

@@ -8,10 +8,10 @@ public class RemoveFirstTwoCharsIf {
             if (i == 0 && string.charAt(i) == 'H') {
                 sb.append(string.charAt(i));
             }
-            else if (i == 1 && string.charAt(i) == 'e') {
+            if (i == 1 && string.charAt(i) == 'e') {
                 sb.append(string.charAt(i));
             }
-            else {
+            else if (i != 0 && i != 1){
                 sb.append(string.charAt(i));
             }
         }
