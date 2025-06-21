@@ -1,6 +1,8 @@
 package exercises.oop.reverse;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import exercises.oop_old.reverse.Reverser;
 import org.junit.jupiter.api.Test;
 
 public class ReverserAnonymousTest {

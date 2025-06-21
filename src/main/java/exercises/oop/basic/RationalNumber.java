@@ -1,29 +1,71 @@
 package exercises.oop.basic;
 
-/*
-Write a class named RationalNumber representing a rational number. RationalNumbers are immutable objects, indeed they
-cannot be changed after creation. Internally, the class represents numerator and denominator as int values. RationalNumbers
-must support equality with other RationalNumbers (see Object.equals(), Object.hashCode()) The class provides the following methods:
-
-- public RationalNumber(int numerator, int denominator) creating the rational number. Before creating the object, numerator
-    and denominator have to be simplified (i.e., divided by their greatest common divisor).
-- public int getNumerator() returning the numerator.
-- public int getDenominator() returning the denominator.
-- public RationalNumber add(RationalNumber o) returning a RationalNumber object representing the sum of the current number and another number.
-- public RationalNumber multiply(RationalNumber o) returning a RationalNumber object representing the multiplication of the current number and another number.
-- public String toString().
-You can use the following two methods for computing the least common multiple and the greatest common divisor of two integer numbers.
- */
+import java.util.Objects;
 
 public class RationalNumber {
     private final int numerator;
     private final int denominator;
 
     /**
-     * Metodo che restituisce
-     * @param a
-     * @param b
-     * @return
+     * Costruttore che crea e inizializza un nuovo oggetto RationalNumber con numeratore e denominatore specificati
+     * @param numerator numeratore del numero
+     * @param denominator denominatore del numero
+     */
+    public RationalNumber(int numerator, int denominator) {
+        int mcd = greatestCommonDivisor(numerator, denominator);
+        this.numerator = numerator / mcd;
+        this.denominator = denominator / mcd;
+    }
+
+    /**
+     * Restituisce il valore dell'attributo numerator
+     * @return il valore dell'attributo numerator
+     */
+    public int getNumerator() {
+        return this.numerator;
+    }
+
+    /**
+     * Restituisce il valore dell'attributo denominator
+     * @return il valore dell'attributo denominator
+     */
+    public int getDenominator() {
+        return this.denominator;
+    }
+
+    /**
+     * Restituisce il RationalNumber dato dalla somma dell'oggetto su cui viene chiamato e l'oggetto passato o
+     * @param o RationalNumber da sommare a quello attuale
+     * @return la somma dei 2 RationalNumber
+     */
+    public RationalNumber add(RationalNumber o) {
+        int ris_denominator = leastCommonMultiple(this.denominator, o.getDenominator());
+        int ris_numerator = ris_denominator / this.denominator * this.numerator + ris_denominator / o.getDenominator() * o.getNumerator();
+
+        RationalNumber ris = new RationalNumber(ris_numerator, ris_denominator);
+
+        return ris;
+    }
+
+    /**
+     * Restituisce il RationalNumber dato dal prodotto tra l'oggetto su cui viene chiamato e l'oggetto passato o
+     * @param o RationalNumber da moltiplicare al primo
+     * @return il prodotto dei 2 RationalNumber
+     */
+    public RationalNumber multiply(RationalNumber o) {
+        int ris_denominator = this.denominator * o.getDenominator();
+        int ris_numerator = this.numerator * o.getNumerator();
+
+        RationalNumber ris = new RationalNumber(ris_numerator, ris_denominator);
+
+        return ris;
+    }
+
+    /**
+     * Restituisce il Massimo Comun Divisore (MCD) tra i numeri a e b
+     * @param a primo numero intero
+     * @param b secondo numero intero
+     * @return MCD tra a e b
      */
     public static int greatestCommonDivisor(int a, int b) {
         int max = Math.max(Math.abs(a), Math.abs(b));
@@ -37,64 +79,35 @@ public class RationalNumber {
         }
     }
 
+    /**
+     * Restituisce il Minimo Comune Multiplo (MCM) tra i numeri a e b
+     * @param a primo numero intero
+     * @param b secondo numero intero
+     * @return MCM tra a e b
+     */
     public static int leastCommonMultiple(int a, int b) {
         return Math.abs(a * b) / greatestCommonDivisor(a, b);
     }
 
-    public RationalNumber(int numerator, int denominator) {
-        this.numerator = numerator / greatestCommonDivisor(numerator, denominator);
-        this.denominator = denominator / greatestCommonDivisor(numerator, denominator);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        RationalNumber that = (RationalNumber) o;
+        return numerator == that.numerator && denominator == that.denominator;
     }
 
-    public int getNumerator() {
-        return numerator;
+    @Override
+    public int hashCode() {
+        return Objects.hash(numerator, denominator);
     }
 
-    public int getDenominator() {
-        return denominator;
-    }
-
-    /**
-     * Metodo che restituisce la somma tra 2 numeri
-     * @param o numero che va sommato al numero su cui viene chiamato il metodo
-     * @return numero che rappresenta la somma tra i 2 numeri
-     */
-    public RationalNumber add(RationalNumber o) {
-        int denominator_sum = leastCommonMultiple(this.getDenominator(), o.getDenominator());
-        int numerator_sum = denominator_sum / this.getDenominator() * this.getNumerator() + denominator_sum / o.getDenominator() * o.getNumerator();
-        return new RationalNumber(numerator_sum, denominator_sum);
-    }
-
-    /**
-     * Metodo che restituisce il prodotto tra 2 numeri
-     * @param o numero che va moltiplicato al numero su cui viene chiamato il metodo
-     * @return numero che rappresenta il prodotto tra i 2 numeri
-     */
-    public RationalNumber multiply(RationalNumber o) {
-        int numerator_mult = this.getNumerator() * o.getNumerator();
-        int denominator_mult = this.getDenominator() * o.getDenominator();
-        return new RationalNumber(numerator_mult, denominator_mult);
-    }
-
-    /**
-     * Override del metodo toString() per fare una stringa che rappresenta l'oggetto corrente in forma di frazione
-     * @return la stringa che rappresenta l'oggetto in forma di frazione
-     */
     @Override
     public String toString() {
-        return "RationalNumber{" +
-                numerator +
-                "/" +
-                denominator +
-                '}';
-    }
-
-    public static void main(String[] args) {
-        RationalNumber rn = new RationalNumber(10, 3);
-        RationalNumber rn2 = new RationalNumber(14, 5);
-        RationalNumber sum = rn.add(rn2);
-        System.out.println(sum);
-        RationalNumber prod = rn.multiply(rn2);
-        System.out.println(prod);
+        return "RationalNumber{numerator=" + numerator + ", denominator=" + denominator + "}";
     }
 }

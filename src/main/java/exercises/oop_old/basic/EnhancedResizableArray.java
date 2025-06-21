@@ -1,4 +1,4 @@
-package exercises.oop.basic;
+package exercises.oop_old.basic;
 
 /*
 Write a class named EnhancedResizableArray representing a resizable array. It internally keeps an int array, enlarges it

@@ -1,4 +1,4 @@
-package exercises.oop.phonebook;
+package exercises.oop_old.phonebook;
 
 import java.util.Objects;
 

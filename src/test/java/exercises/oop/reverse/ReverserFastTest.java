@@ -1,5 +1,6 @@
 package exercises.oop.reverse;
 
+import exercises.oop_old.reverse.ReverserFast;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

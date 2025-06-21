@@ -1,4 +1,4 @@
-package exercises.oop.basic;
+package exercises.oop_old.basic;
 
 /*
 Write a class named BankAccount representing a bank account. Internally, the class uses a double value for representing

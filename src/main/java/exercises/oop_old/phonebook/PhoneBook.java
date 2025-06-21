@@ -1,4 +1,4 @@
-package exercises.oop.phonebook;
+package exercises.oop_old.phonebook;
 
 public interface PhoneBook {
     public static final int MAX_PERSON = 256;

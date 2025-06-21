@@ -1,4 +1,4 @@
-package exercises.oop.reverse;
+package exercises.oop_old.reverse;
 
 public class ReverserSlow implements Reverser {
     /**
