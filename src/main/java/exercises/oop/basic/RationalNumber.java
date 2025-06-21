@@ -42,9 +42,7 @@ public class RationalNumber {
         int ris_denominator = leastCommonMultiple(this.denominator, o.getDenominator());
         int ris_numerator = ris_denominator / this.denominator * this.numerator + ris_denominator / o.getDenominator() * o.getNumerator();
 
-        RationalNumber ris = new RationalNumber(ris_numerator, ris_denominator);
-
-        return ris;
+        return new RationalNumber(ris_numerator, ris_denominator);
     }
 
     /**
@@ -56,9 +54,7 @@ public class RationalNumber {
         int ris_denominator = this.denominator * o.getDenominator();
         int ris_numerator = this.numerator * o.getNumerator();
 
-        RationalNumber ris = new RationalNumber(ris_numerator, ris_denominator);
-
-        return ris;
+        return new RationalNumber(ris_numerator, ris_denominator);
     }
 
     /**

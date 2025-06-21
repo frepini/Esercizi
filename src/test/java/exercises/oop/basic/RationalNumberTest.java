@@ -45,7 +45,7 @@ class RationalNumberTest {
         RationalNumber rn3 = new RationalNumber(10, 9);
         assertEquals(rn1, rn2);
         assertNotEquals(rn1, rn3);
-        assertNotEquals(rn1, null);
+        assertNotEquals(null, rn1);
     }
 
     @Test
