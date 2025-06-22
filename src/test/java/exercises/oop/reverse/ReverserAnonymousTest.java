@@ -9,10 +9,11 @@ public class ReverserAnonymousTest {
 
     @Test
     void reverse() {
-        Reverser r = new Reverser() {      // stiamo facendo un'implementazione dell'interfaccia Reverser direttamente nel test
+        Reverser r = new Reverser() {
             @Override
             public String reverse(String s) {
-                return new StringBuilder(s).reverse().toString();
+                StringBuilder sb = new StringBuilder(s);
+                return sb.reverse().toString();
             }
         };
         assertEquals("!dlroW olleH", r.reverse("Hello World!"));
