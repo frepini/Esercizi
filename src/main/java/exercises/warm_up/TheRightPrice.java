@@ -17,14 +17,14 @@ public class TheRightPrice {
         int guess1 = s.nextInt();
         System.out.print("Secondo utente, quanto credi che costi il prodotto immaginario? (Prezzo compreso tra 0 e 100) ");
         int guess2 = s.nextInt();
-        if(Math.abs(guess1 - price) < Math.abs(guess2 / price)) {
-            System.out.println("Il primo utente è andato più vicino al prezzo vero!");
+        if (Math.abs(guess1 - price) < Math.abs(guess2 - price)) {
+            System.out.println("Il primo utente è andato più vicino al prezzo vero, quindi ha vinto!");
         }
-        else if(Math.abs(guess1 - price) > Math.abs(guess2 / price)) {
-            System.out.println("Il secondo utente è andato più vicino al prezzo vero!");
+        else if (Math.abs(guess1 - price) > Math.abs(guess2 - price)) {
+            System.out.println("Il secondo utente è andato più vicino al prezzo vero, quindi ha vinto!");
         }
         else {
-            System.out.println("I due utenti hanno inserito lo stesso prezzo!");
+            System.out.println("I due utenti hanno inserito lo stesso prezzo, quindi hanno vinto entrambi!");
         }
     }
 }
