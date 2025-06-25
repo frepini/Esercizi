@@ -1,4 +1,4 @@
-package exercises.collections;
+package exercises.collections.lists;
 
 import org.junit.jupiter.api.Test;
 

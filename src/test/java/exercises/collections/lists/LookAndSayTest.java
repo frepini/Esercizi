@@ -1,4 +1,4 @@
-package exercises.collections;
+package exercises.collections.lists;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,5 +16,6 @@ class LookAndSayTest {
         assertIterableEquals(List.of(1L, 11L, 21L), LookAndSay.lookAndSay(3));
         assertIterableEquals(List.of(1L, 11L, 21L, 1211L), LookAndSay.lookAndSay(4));
         assertIterableEquals(List.of(1L, 11L, 21L, 1211L, 111221L), LookAndSay.lookAndSay(5));
+        assertIterableEquals(List.of(1L, 11L, 21L, 1211L, 111221L, 312211L), LookAndSay.lookAndSay(6));
     }
 }
