@@ -1,4 +1,4 @@
-package exercises.threads;
+package examples.threads;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

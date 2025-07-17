@@ -1,4 +1,4 @@
-package exercises.threads.lockingGranularity;
+package examples.threads.lockingGranularity;
 
 public class LockingGranularity {
     public static void main(String[] args) throws InterruptedException {

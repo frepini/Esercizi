@@ -1,4 +1,4 @@
-package exercises.threads.lockingGranularity;
+package examples.threads.lockingGranularity;
 
 public class Actor extends Thread {
     Runnable runnable;

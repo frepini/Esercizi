@@ -1,4 +1,4 @@
-package exercises.threads;
+package examples.threads;
 
 public class StartStopThread extends Thread {
     public StartStopThread(String name) {

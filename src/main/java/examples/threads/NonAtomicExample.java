@@ -1,4 +1,4 @@
-package exercises.threads;
+package examples.threads;
 
 public class NonAtomicExample {
     static int times = 10000;

@@ -1,4 +1,4 @@
-package exercises.threads.lockingGranularity;
+package examples.threads.lockingGranularity;
 
 public class SharedResource {
     public synchronized void A() {
