@@ -1,12 +1,12 @@
 package exercises.threads;
 
 import java.util.Deque;
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class ProducerConsumerSafe {
     public static void main(String[] args) throws InterruptedException {
-        Deque<Integer> deque = new LinkedList<>();
+        Deque<Integer> deque = new ConcurrentLinkedDeque<>();
         Thread producer = new ProducerSafe(deque);
         Thread consumer = new ConsumerSafe(deque);
 

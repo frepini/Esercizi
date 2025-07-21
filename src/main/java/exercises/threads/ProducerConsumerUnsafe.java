@@ -1,12 +1,12 @@
 package exercises.threads;
 
 import java.util.Deque;
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class ProducerConsumerUnsafe {
     public static void main(String[] args) throws InterruptedException {
-        Deque<Integer> deque = new LinkedList<>();
+        Deque<Integer> deque = new ConcurrentLinkedDeque<>();
         Thread producer = new ProducerUnsafe(deque);
         Thread consumer = new ConsumerUnsafe(deque);
 
@@ -26,6 +26,7 @@ public class ProducerConsumerUnsafe {
         final Deque<Integer> integerDeque;
 
         public ProducerUnsafe(Deque<Integer> integerDeque) {
+            super();
             this.integerDeque = integerDeque;
         }
 
@@ -43,6 +44,7 @@ public class ProducerConsumerUnsafe {
         final Deque<Integer> integerDeque;
 
         public ConsumerUnsafe(Deque<Integer> integerDeque) {
+            super();
             this.integerDeque = integerDeque;
         }
 
